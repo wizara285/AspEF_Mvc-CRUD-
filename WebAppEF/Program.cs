@@ -7,10 +7,10 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // получаем строку подключения из файла конфигурации
+        // get connection string from config file
         string? connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-        // добавляем контекст ApplicationContext в качестве сервиса в приложение
+        // add context 'ApplicationContext' as a service to the application
         builder.Services.AddDbContext<ApplicationContext>(option => option.UseSqlServer(connection));
 
         builder.Services.AddControllersWithViews();
