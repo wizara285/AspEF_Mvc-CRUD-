@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebAppEF.Models.User>
+ 
+<h2>List of users</h2>
+<p><a asp-action="Create">Add User</a></p>
+<table class="table">
+     <tr><th>Name</th><th>Age</th></tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Age</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@user.Id">Edit</a>
+            </td>
+            <td>
+                <form asp-controller="Home" asp-action="Delete" method="post" asp-route-id="@user.Id">
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
