@@ -31,7 +31,6 @@ namespace WebAppEF.Controllers
             db.Users.Add(user);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
-
         }
 
         [HttpPost]
